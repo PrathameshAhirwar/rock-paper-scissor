@@ -1,0 +1,290 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Stone Paper Scissor</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!-- Score Board -->
+        <div id="score-board">
+            <div id="heading">
+                <h1 id="h1">Rock</h1>
+                <h1 id="h1">Paper</h1>
+                <h1 id="h1">Scissor</h1>
+            </div>
+            <div id="score">
+                <div id="computer-score">
+                    <h3 style="text-align: center;">Computer</h3>
+                    <h3 style="text-align: center;">Score</h3>
+                    <h1 id="compScore">0</h1>
+                </div>
+                <div id="user-score">
+                    <h3 style="text-align: center;">User</h3>
+                    <h3 style="text-align: center;">Score</h3>
+                    <h1 id="yourScore">0</h1>
+                </div>
+            </div>
+        </div>
+        <!-- Game-Display -->
+        <div id="game-play">
+            <div class="display-game">
+                <div id="rock" onclick="selected('rock')"><img src="./icons8-fist-67 1.png" alt="" height="40%" width="60%" id="rock-img"></div>
+                <div id="scissor" onclick="selected('scissor')"><img src="./17911 1.png" alt=""  id="scissor-img"></div>
+                <div id="paper" onclick="selected('paper')"><img src="./icons8-hand-64 1.png" alt="" id="paper-img"></div>
+    
+                <div class="line" id="line-rock-scissor"></div>
+                <div class="line" id="line-rock-paper"></div>
+                <div class="line" id="line-paper-scissor"></div>
+            </div>
+        </div>
+        <!-- Rules -->
+        <div class="rules">
+            <div id="rule-book">
+                <ul type="square" class="text-light">
+                    <li class="list">Rock beats scissors,scissors beat paper, and paper beats rock</li>
+                    <li class="list">Agree ahead of time whether you'll count off "rock,paper,scissors."</li>
+                    <li class="list">Use rock,paper,scissors to settle minor decision or simply play to pass the time</li>
+                    <li class="list">If both players lay down the same hand,each player lays down another hand</li>
+                </ul>
+                <div class="cross" onclick="ruleBookClose()"><h2 id="cancel">x</h2></div>
+            </div>
+            
+            <div class="rule-btn">
+                <button id="rule-btn" onclick="ruleBookDisplay()">Rules</button>
+                <button id="next-btn" onclick="next()">Next</button>
+
+            </div>
+        </div>
+        <!--Player Win Celebration -->
+        <div id="player-win">
+            <div class="win-animation">
+                
+                <div id="win-player">
+                    <h4>You Picked</h4>
+                    <img src="./17911 1.png" alt=""  id="win-img-player">
+                </div>
+                <div id="celebration">
+                <h1 id="win-msg">YOU WIN</h1>
+                <h2 id="win-msg">AGAINST PC</h2>
+                <button id="win-msg" style="background-color: transparent; border: 1px solid white; width: 60%;height: 25%; border-radius: 10%;" onclick="playAgain()">PLAY AGAIN </button>
+                </div>
+                <div id="loose-comp">
+                    <h4>Computer Picked</h4>
+                    <img src="./17911 1.png" alt=""  id="loose-img-comp">
+                </div>
+            </div> 
+        </div>
+
+
+        <!--Player Loose Celebration -->
+        <div id="player-loose">
+            <div class="loose-animation">
+                <div id="loose-player">
+                    <h4>You Picked</h4>
+                    <img src="./17911 1.png" alt=""  id="loose-img-player">
+                </div>
+                <div id="celebration">
+                <h1 id="loose-msg">YOU LOOSE</h1>
+                <h2 id="loose-msg">AGAINST PC</h2>
+                <button id="win-msg" style="background-color: transparent; border: 1px solid white; width: 60%;height: 25%; border-radius: 10%;" onclick="playAgain()">PLAY AGAIN </button>
+                </div>
+                <div id="win-comp">
+                    <h4>Computer Picked</h4>
+                    <img src="./17911 1.png" alt=""  id="win-img-comp">
+                </div>
+            </div> 
+        </div>
+
+
+        <!--TIE MATCH -->
+        <div id="tie-match">
+            <div class="tie-animation">
+                <div id="tie-player">
+                    <h4>You Picked</h4>
+                    <img src="./17911 1.png" alt=""  id="tie-img-player">
+                </div>
+                <div id="celebration">
+                <h1 id="tie-msg">TIE UP</h1>
+                <button id="tie-msg" style="background-color: transparent; border: 1px solid white; width: 60%;height: 25%; border-radius: 10%;" onclick="playAgain()">REPLAY</button>
+                </div>
+                <div id="tie-comp">
+                    <h4>Computer Picked</h4>
+                    <img src="./17911 1.png" alt=""  id="tie-img-comp">
+                </div>
+            </div> 
+        </div>
+
+        <!-- Winning Moment Trophy -->
+        <div id="winCelebration">
+            <div id="win-img">
+                <div>
+                    <img src="./Group 5.png" id="img-star"  alt="">
+                </div>
+                <div>
+                    <img src="./Vector.png" id="img-trophy" alt="">
+                </div>
+            </div>
+            <div id="congrats-msg">
+                <div>
+                    <h1>HURRAY !!</h1>
+                </div>
+                <div>
+                    <h5>YOU WON THE GAME</h5>
+                </div>
+                <div>
+                    <div><h5 id="h5-btn" onclick="playAgainNext()">PLAY AGAIN</h5></div>
+                </div>
+            </div>
+        </div>
+        <!-- JAVASCRIPT -->
+        <script>
+            //Rule Book Display & Close
+        let ruleBook = document.getElementById("rule-book")
+        function ruleBookDisplay(params) {
+            ruleBook.style.display="block";
+        }
+        function ruleBookClose(params) {
+            ruleBook.style.display="none"
+        }
+
+        // Game Play
+        let computerScore = localStorage.getItem('computerScore') ? parseInt(localStorage.getItem('computerScore')) : 0;
+        let yourScore = localStorage.getItem('yourScore') ? parseInt(localStorage.getItem('yourScore')) : 0;
+
+        let cScore = document.getElementById('compScore')
+        let yScore = document.getElementById('yourScore')
+
+        window.onload = function() {
+        cScore.innerHTML = computerScore;
+        yScore.innerHTML = yourScore;
+        }
+        let tieImgComp = document.getElementById('tie-img-comp')
+        let tieImgPlayer = document.getElementById('tie-img-player')
+        let winImgPlayer = document.getElementById('win-img-player')
+        let looseImgComp = document.getElementById('loose-img-comp')
+        let winImgComp = document.getElementById('win-img-comp')
+        let looseImgPlayer = document.getElementById('loose-img-player')
+        function selected(yourChoice){
+            const userImg ={
+                rock: "./icons8-fist-67 1.png",
+                scissor: "./17911 1.png",
+                paper: "./icons8-hand-64 1.png"
+            }
+            const userBorder ={
+                rock: "20px solid #0074B6",
+                scissor: "20px solid #BD00FF",
+                paper: "20px solid #FFA943"
+            }
+            const compImg ={
+                rock: "./icons8-fist-67 1.png",
+                scissor: "./17911 1.png",
+                paper: "./icons8-hand-64 1.png"
+            }
+            const compBorder ={
+                rock: "20px solid #0074B6",
+                scissor: "20px solid #BD00FF",
+                paper: "20px solid #FFA943"
+            }
+
+            let select = document.getElementById("game-play")
+            console.log("Selected function is called: " + yourChoice);
+            let uChoice = ['rock','paper','scissor'];
+            let cChoice = uChoice[Math.floor(Math.random() * uChoice.length)];
+            
+            console.log("Computer chose: " + cChoice);
+
+            if (yourChoice === cChoice) {
+                let tie = document.getElementById("tie-match")
+                select.style.display="none"
+                tie.style.display="block"
+                tieImgPlayer.src = userImg[yourChoice]
+                tieImgComp.src = compImg[cChoice]
+                document.getElementById("tie-player").style.border=userBorder[yourChoice]
+                document.getElementById("tie-comp").style.border=compBorder[cChoice]
+                
+
+            } else if(
+                (yourChoice === 'rock' && cChoice === 'scissor') ||
+                (yourChoice === 'paper' && cChoice === 'rock') ||
+                (yourChoice === 'scissor' && cChoice === 'paper')
+            ) {
+                let win = document.getElementById("player-win")
+                let next = document.getElementById("next-btn")
+                select.style.display="none"
+                win.style.display="block"
+                next.style.display="block"
+                yourScore++;
+                yScore.innerHTML=yourScore;
+                winImgPlayer.src = userImg[yourChoice]
+                
+                looseImgComp.src = compImg[cChoice]
+                document.getElementById("win-player").style.border=userBorder[yourChoice]
+                document.getElementById("loose-comp").style.border=compBorder[cChoice]
+                localStorage.setItem('yourScore', yourScore);
+            }
+            else{
+                let lose = document.getElementById("player-loose")
+                select.style.display="none"
+                lose.style.display="block";
+                computerScore++;
+                cScore.innerHTML=computerScore;
+                looseImgPlayer.src = userImg[yourChoice]
+                winImgComp.src = compImg[cChoice]
+                document.getElementById("loose-player").style.border=userBorder[yourChoice]
+                document.getElementById("win-comp").style.border=compBorder[cChoice]
+                localStorage.setItem('computerScore', computerScore);
+            }
+        }
+        
+        function playAgain(){
+            let select = document.getElementById("game-play")
+            let tie = document.getElementById("tie-match")
+            let win = document.getElementById("player-win")
+            let lose = document.getElementById("player-loose")
+            let next = document.getElementById("next-btn")
+            let winTrophy = document.getElementById("winCelebration")
+            winTrophy.style.display="none"
+            tie.style.display="none"
+            win.style.display="none"
+            lose.style.display="none"
+            next.style.display="none"
+            select.style.display="flex"
+        }
+
+        function next(){
+            let winTrophy = document.getElementById("winCelebration")
+            let select = document.getElementById("game-play")
+            let score = document.getElementById("score-board")
+            let next = document.getElementById("next-btn")
+            let win = document.getElementById("player-win")
+            win.style.display="none"
+            score.style.display="none"
+            select.style.display="none"
+            next.style.display="none"
+            winTrophy.style.display="flex"
+        }
+
+        function playAgainNext() {
+            let select = document.getElementById("game-play")
+            let tie = document.getElementById("tie-match")
+            let score = document.getElementById("score-board")
+            let win = document.getElementById("player-win")
+            let lose = document.getElementById("player-loose")
+            let next = document.getElementById("next-btn")
+            let winTrophy = document.getElementById("winCelebration")
+            winTrophy.style.display="none"
+            tie.style.display="none"
+            win.style.display="none"
+            score.style.display="flex"
+            lose.style.display="none"
+            next.style.display="none"
+            select.style.display="flex"
+        }
+        </script>
+    </body>
+    </html>

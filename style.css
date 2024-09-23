@@ -1,0 +1,461 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+   background-color: #8CC461;
+   font-family: "Roboto";
+
+}
+
+
+
+
+/* Score-board style */
+#score-board{
+    position: absolute;
+    height: 20%;
+    width: 52%;
+    margin: 5% 25% ;
+    border: 5px solid white;
+    border-radius: 25px;
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
+}
+
+#heading{
+    height: 100%;
+    width: 50%;
+    margin: 1%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    color: white;
+}
+
+#h1{
+    font-weight: bolder;
+    padding: 1%;
+}
+
+#score{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#computer-score{
+    height: 100%;
+    width: 40%;
+    background-color: white;
+}
+
+#user-score{
+    height: 100%;
+    width: 40%;
+    background-color: white;
+}
+
+/* Game-play Style */
+
+#game-play{
+    position: absolute;
+    height: 40%;
+    width: 52%;
+    margin: 20% 25% ;
+    display: flex;
+    /* display: none; */
+    padding: 15px;
+    justify-content: space-evenly;
+}
+
+.display-game{
+    height: 100%;
+    width: 50%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+}
+
+
+#rock{
+    height: 70%;
+    width: 50%;
+    margin: 5px auto;
+    padding: 5px auto;
+    border-radius: 50%;
+    border: 20px solid #0074B6;
+    background-color: white;
+    box-shadow: 0px 0px 10px 2px rgb(82, 81, 81);
+}
+#rock-img{
+    margin: 25% 18%;
+}
+
+#scissor{
+    height: 70%;
+    width: 55%;
+    margin: 5px auto;
+    padding: 5px auto;
+    border-radius: 50%;
+    background-color: white;
+    border: 20px solid #BD00FF;
+    box-shadow: 0px 0px 10px 2px rgb(82, 81, 81);
+}
+#scissor-img{
+    margin: 25% 33%;
+}
+
+#paper{
+    height: 70%;
+    width: 28%;
+    margin: 5px auto;
+    padding: 5px auto;
+    border-radius: 50%;
+    background-color: white;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border: 20px solid #FFA943;
+    box-shadow: 0px 0px 10px 2px rgb(82, 81, 81);
+}
+
+#paper-img{
+    margin: 25% 25%;
+}
+
+
+/* Line  */
+.line {
+    position: absolute;
+    width: 5px;
+    background-color: black;
+}
+
+#line-rock-scissor {
+    top: 40%;
+    left: 55%;
+    height: 54px;
+    transform: rotate(45deg);
+}
+
+#line-rock-paper {
+    top: 40%;
+    left: 45%;
+    height: 55px;
+    transform: rotate(-45deg);
+}
+
+#line-paper-scissor {
+    top: 18%;
+    left: 50.5%;
+    height: 75px;
+    transform: rotate(90deg);
+}
+
+/* Rule Book */
+
+.rules{
+    position: absolute;
+    left: 52%;
+    height: 43%;
+    width: 20%;
+    margin: 20% 25%;
+}
+
+#rule-btn{
+    position: absolute;
+    left: 68%;
+    margin: 95% 10%;
+    width: 20%;
+    padding: 10px;
+    color: white;
+    border: 1px solid white;
+    text-align: center;
+    background-color: transparent;
+    font-size: medium;
+    font-weight:bold;
+    border-radius: 15%;
+}
+
+#next-btn{
+    position: absolute;
+    left: 30%;
+    margin: 95% 10%;
+    display: none;
+    width: 20%;
+    padding: 10px;
+    color: white;
+    border: 1px solid white;
+    text-align: center;
+    background-color: transparent;
+    font-size: medium;
+    font-weight:bold;
+    border-radius: 15%;
+}
+
+#rule-book{
+    position: absolute;
+    display: none;
+    padding: 10%;
+    height: 65%;
+    background-color: #004429;
+    color: white;
+    border: 5px solid white;
+    
+}
+
+.list{
+    padding: 5%;
+}
+
+.list::marker{
+    color: #FFD600;
+}
+
+.cross{
+    position: absolute;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    height: 10%;
+    width: 10%;
+    text-align: center;
+    left: 95%;
+    top: -4%;
+    border: 3px solid white;
+}
+
+#cancel{
+    margin: 5% auto;
+    padding: 5%;
+    font-weight: 700;
+}
+
+/* Player Win Celebration */
+#player-win{
+    position: absolute;
+    height: 40%;
+    width: 52%;
+    margin: 20% 25% ;
+    /* display: flex; */
+    display: none;
+    padding: 15px;
+    justify-content: space-evenly;
+} 
+
+
+.win-animation{
+    /* display: none; */
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+}
+
+#celebration{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5%;
+}
+
+#win-msg{
+    margin: 5% auto;
+    color: white;
+}
+
+h4{
+    position: absolute;
+    font-size: 1.5em;
+    margin-top: -8%;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#win-player ,#win-comp{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 55%;
+    margin: 5px auto;
+    padding: 5px auto;
+    border-radius: 50%;
+    background-color: white;
+    border: 20px solid #BD00FF;
+    box-shadow: 0px 0px 10px 2px rgb(82, 81, 81);
+    animation-name: blast;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blast {
+    0% {
+        border-color: #138608d3;
+    }
+    50% {
+        border-color: #2f9a25c0;
+    }
+    100% {
+        border-color: #2f9a2577;
+    }
+}
+
+#win-img-player,#loose-img-comp,#win-img-comp,#loose-img-player,#tie-img-player,#tie-img-comp {
+    margin: 35% 35%;
+}
+#loose-player, #loose-comp{
+    height: 50%;
+    width: 55%;
+    margin: 5px auto;
+    padding: 5px auto;
+    border-radius: 50%;
+    background-color: white;
+    border: 20px solid #BD00FF;
+    box-shadow: 0px 0px 10px 2px rgb(82, 81, 81);
+}
+
+
+
+/* Loose  Game*/
+#player-loose{
+    position: absolute;
+    height: 40%;
+    width: 52%;
+    margin: 20% 25% ;
+    /* display: flex; */
+    display: none;
+    padding: 15px;
+    justify-content: space-evenly;
+} 
+
+
+.loose-animation{
+    /* display: none; */
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+}
+
+#celebration{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5%;
+}
+
+#loose-msg{
+    margin: 5% auto;
+    color: white;
+}
+
+/* TIE MATCH  */
+
+#tie-match{
+    position: absolute;
+    height: 40%;
+    width: 52%;
+    margin: 20% 25% ;
+    display: flex;
+    display: none;
+    padding: 15px;
+    justify-content: space-evenly;
+} 
+
+
+.tie-animation{
+    display: none;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+}
+
+#celebration{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5%;
+}
+
+#tie-msg{
+    margin: 5% auto;
+    color: white;
+}
+
+#tie-player, #tie-comp{
+    height: 50%;
+    width: 55%;
+    margin: 5px auto;
+    padding: 5px auto;
+    border-radius: 50%;
+    background-color: white;
+    border: 20px solid #BD00FF;
+    box-shadow: 0px 0px 10px 2px rgb(82, 81, 81);
+}
+#tie-img{
+    margin: 35% 40%;
+}
+
+#compScore{
+    font-size: 120px;
+    text-align: center;
+}
+#yourScore{
+    font-size: 120px;
+    text-align: center;
+}
+/* Win Trophy Celebration */
+#winCelebration{
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#win-img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#img-trophy{
+    position: absolute;
+    top:30%;
+    left: 30%;
+}
+
+#congrats-msg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15% auto;
+    color: white;
+}
+
+#h5-btn{
+    background-image: transparent;
+    border: 1px solid white;
+    width: 100%;
+    margin: 10% auto;
+    color: white;
+}
